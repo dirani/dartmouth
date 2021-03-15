@@ -19,9 +19,13 @@ Petra and Rémi
 ________________
 
 Petra Bonfert-Taylor
+
 Professor, Thayer School of Engineering
+
 Dartmouth College
 
 Rémi Sharrock
+
 Associate Professor, Télécom ParisTech
+
 IMT
