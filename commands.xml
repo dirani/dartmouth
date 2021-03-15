@@ -1,0 +1,28 @@
+<!-- -->
+
+
+
+
+    locate file
+    updatedb
+    echo p*
+    echo /usr/bin/a*
+    echo /usr/bin/a??
+    echo /usr/bin/???
+    find
+    find /
+    find .
+    find . -name "program.c"
+    find . -name "prog*"
+    find / -name "hello"
+    find / -name "hello" 2>/dev/null
+    find / -name "*joe*" 2>/dev/null
+    find / -iname "*joe*" 2>/dev/null
+    find / -ipath "*joe*" 2>/dev/null
+    find / -ipath "*joe*" 2>/dev/null | less
+
+
+
+<!-- -->
+
+df_drivertest2
