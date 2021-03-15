@@ -18,14 +18,10 @@ Let’s get coding!
 Petra and Rémi
 ________________
 
-Petra Bonfert-Taylor
+Petra Bonfert-Taylor <br/>
+Professor, Thayer School of Engineering <br/>
+Dartmouth College <br/>
 
-Professor, Thayer School of Engineering
-
-Dartmouth College
-
-Rémi Sharrock
-
-Associate Professor, Télécom ParisTech
-
-IMT
+Rémi Sharrock <br/>
+Associate Professor, Télécom ParisTech <br/>
+IMT <br/>
