@@ -1,0 +1,1 @@
+gcc -std=c11 -Wall -fmax-errors=10 -Wextra program.c -lm -o program

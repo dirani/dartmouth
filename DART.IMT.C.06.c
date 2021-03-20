@@ -1,7 +1,9 @@
+/* 
 https://remisharrock.fr/sysbuild/#/VM
+*/
 
 Course Unit 6.1: History of Linux and the command line Manipulating the command line interface
-<!-- -->
+/* 
 whoami
 whoami --help
 id
@@ -21,8 +23,8 @@ date
 date +"%T"
 date +"%A %d %B %Y"
 man
-
-<!-- -->
+*/
+/* 
 
 Course Unit 6.1: History of Linux and the command line
 Manipulating the command line interface
@@ -37,9 +39,9 @@ htop // F1
 nano // ^ = ctrl  carret (circumflex accent)
 vim // :q and also escape then :q
 //CTRL + C expanation (sometimes quits the program, but not always)
+*/
 
-<!-- -->
-
+/*
 Course
 Unit 6.2: The Linux file system
 Discovering the file system
@@ -66,7 +68,7 @@ Commands discussed in this video:
     cd /sys
     ls
     cd
-
+ 
 
     //RELATIVE PATHS
 
@@ -94,9 +96,9 @@ Commands discussed in this video:
     cd
     ls
     cd program.c
+ */
 
-
-<!-- -->
+/* 
 pwd, cd, ls, absolute path, relative path (2)
 
 
@@ -124,8 +126,8 @@ pwd, cd, ls, absolute path, relative path (2)
     which which
     which file
 
-
-<!-- -->
+*/
+/* 
 
 Course
 Unit 6.2: The Linux file system
@@ -166,9 +168,9 @@ cat less
     N – for previous match in forward direction
     less --help  (see N and M options)
     ls /usr/bin | less -NM
+*/
 
-
-<!-- -->
+/* 
 Course
 Unit 6.2: The Linux file system
 Creating and deleting files and folders
@@ -209,9 +211,9 @@ mkdir, rm -r
     yes | rm -ri folder
     mkdir D1/D2/D3/D4/D5
     mkdir -p D1/D2/D3/D4/D5
+*/
 
-
-<!-- -->
+/* 
 Course
 Unit 6.2: The Linux file system
 Unblocking yourself in the command line
@@ -244,9 +246,9 @@ Unblock yourself in the command line
     rain
     open second terminal
     htop  F9  send the SIGKILL signal
+*/
 
-
-<!-- -->
+/* 
 
 Course
 Unit 6.2: The Linux file system
@@ -283,8 +285,8 @@ mv f6 f5
 f5 is lost ! BE CAREFUL
 mv --help
 mv -i   or  mv -n  TO NOT OVERWRITE! FOR MORE SECURITY
-
-<!-- -->
+*/
+/* 
 
 Course
 Unit 6.2: The Linux file system
@@ -307,8 +309,8 @@ cp, cp -r
     cp -r d1 d2
     cp --help
     cp -ri d1 d2
-
-<!-- -->
+*/
+/* 
 
  Course
  Unit 6.2: The Linux file system
@@ -334,8 +336,8 @@ cp, cp -r
     find / -iname "*joe*" 2>/dev/null
     find / -ipath "*joe*" 2>/dev/null
     find / -ipath "*joe*" 2>/dev/null | less
-
-<!-- -->
+*/
+/* 
 
 build cmd: gcc -std=c11 -Wall -fmax-errors=10 -Wextra ctemp.c -o ctemp
 exec: ./ctemp
@@ -363,8 +365,8 @@ look at the documentation when you click on pow
 find / -name "math.h" 2>/dev/null
 ls /usr/include | less
 ls /usr/include > includes.txt  (open with editor)
-
-//<!-- -->
+*/
+/* */
 
 #include <stdio.h>
 
@@ -410,9 +412,9 @@ double ctof(int x){
 double ftoc(int x){
 	return(5.0/9*(x-32));
 }
-
+/*
 gcc -std=c11 -Wall -fmax-errors=10 -Wextra program.c -o program
-
+*/
 
 #include <math.h>
 /*Write your C code here*/
@@ -491,12 +493,12 @@ int main(void) {
 	return 0;
 }
 
-// <!-- -->
-
+/*
 gcc -std=c11 -Wall -fmax-errors=10 -Wextra myNewProgram.o program.o -o myNewProgram
 gcc -std=c11 -Wall -fmax-errors=10 -Wextra myNewProgram.o program.o -o myNewProgram
-
- // <!-- -->
+ */
+ 
+ /*
 
  Makefile code discussed in this video:
 
@@ -526,9 +528,10 @@ $(MAIN): $(OBJFILES)
 clean:
 	rm -f $(OBJFILES) $(MAIN)
 _______________________________________________________________________________________________________________________
-
+ */
+/*
 program.c
-
+*/
 #include <stdio.h>
 #include "weatherstats.h"
 
@@ -580,4 +583,91 @@ double minTemp(double *temps, int numOfTemps) {
 }
 
 
-// <!-- -->
+/* */
+
+/* Course  Unit 7.1: Libraries in C  Using the math library in C  Use the math library */
+/* Code discussed in this video: */
+
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    double a = 2.5;
+    double asquared = pow(a,2);
+    printf("%.2lf squared = %.2lf\n",a,asquared);
+    return 0;
+}
+
+/* Commands and changes discussed in this video: */
+
+x is raised to the power of y
+a is raised to the power of 2  (squared)
+look at the documentation when you click on pow
+
+find / -name "math.h" 2>/dev/null
+ls /usr/include | less
+ls /usr/include > includes.txt  (open with editor)
+
+/* Course  Unit 7.1: Libraries in C  Using multiple libraries in C  Use multiple libraries in C */
+
+/* Code discussed in this video: */
+
+#include <stdio.h>
+#include <curses.h>
+#include <menu.h>
+#include <stdlib.h>
+
+int main(void) {
+	ITEM **my_items;
+	int c;
+	MENU *my_menu;
+	int n_choices, i;
+	char *choices[] = {
+	    "Menu 1",
+	    "Menu 2",
+	    "Menu 3",
+	    "Menu 4"
+	};
+	char *descriptions[] = {
+		"do this",
+		"do that",
+		"do ....",
+		"do ????"
+	};
+	
+	initscr();
+	cbreak();
+	noecho();
+	keypad(stdscr, TRUE);
+	
+	n_choices = sizeof(choices) / sizeof(choices[0]);
+	my_items = (ITEM **)calloc(n_choices + 1, sizeof(ITEM *));
+	
+	for (i=0; i<n_choices; i++) {
+	    my_items[i] = new_item(choices[i], descriptions[i]);
+	}
+	my_items[n_choices] = (ITEM *)NULL;
+	
+	my_menu = new_menu((ITEM **)my_items);
+	mvprintw(LINES - 2, 0, "q to quit");
+	post_menu(my_menu);
+	refresh();
+	
+	while ((c = getch()) != 'q') {
+	    if (c==KEY_DOWN) {
+	        menu_driver(my_menu, REQ_DOWN_ITEM);
+	    } else if (c==KEY_UP) {
+	        menu_driver(my_menu, REQ_UP_ITEM);
+	    }
+	}
+	
+	for (i=0; i<=n_choices; i++) {
+		free_item(my_items[i]);
+	}
+	free_menu(my_menu);
+	endwin();
+	return 0;
+}
+
+/*  */
+
